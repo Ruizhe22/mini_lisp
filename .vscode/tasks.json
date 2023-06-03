@@ -1,38 +1,50 @@
 {
-  "version": "2.0.0",
+  "options": {},
   "tasks": [
     {
-      "label": "configure",
-      "type": "process",
-      "command": "cmake",
       "args": [
-        "-DCMAKE_BUILD_TYPE=Debug",
-        "-Bbuild"
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out",
+        "-std=c++20"
       ],
-      "problemMatcher": []
-    },
-    {
-      "label": "build",
-      "type": "process",
-      "command": "cmake",
-      "args": [
-        "--build",
-        "build"
-      ],
-      "problemMatcher": "$gcc",
+      "command": "/usr/bin/clang++",
       "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "single file build",
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$gcc",
+      "type": "process"
     },
     {
+      "args": [],
+      "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "dependsOn": "single file build",
       "label": "run and pause",
-      "type": "pause-console",
-      "command": "${workspaceFolder}/bin/mini_lisp",
       "options": {
-        "cwd": "${workspaceFolder}/bin"
+        "env": {}
       },
-      "dependsOn": "build"
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "type": "pause-console"
     }
-  ]
+  ],
+  "version": "2.0.0"
 }

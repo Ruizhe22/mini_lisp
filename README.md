@@ -9,12 +9,13 @@
 - 安装 [Cmake](https://cmake.org/download/#latest)。
   - （Windows 11）你可以使用 `winget` 安装：执行 `winget install cmake`。
   - （macOS）如果你安装了 `brew`，则可以执行 `brew install cmake`。
-- 通过 VS Code 打开本文件夹后，呼出命令面板（Ctrl/Cmd + Shift + P），执行 `Tasks: Run task...` 中的 `configure` 任务。
-- 安装 CMake Tools 扩展后，重新加载窗口以生成智能提示。如果你安装了 Clangd 及其 VS Code 扩展，则按照 `.vscode/c_cpp_properties.json` 中的注释进行操作。
+- 在 CLion 中打开本文件夹，配置好编译器和 CMake。
+  - 如果你正确安装了相关编译器和 CMake，CLion 通常能自动检测到它们。
+  - Windows 下如果你同时安装了 MinGW 和 MSVC，你可能需要手动选择其中一个。
 
 ## 编译、运行与调试
 
-- 按 Ctrl + Shift + B 编译项目。按 F6（即你在 VS Code Config Helper 中选择的运行快捷键）运行项目。
-- 按 F5 调试项目。
+- 按“锤子”（Ctrl/Cmd + F9）按钮编译项目。按“播放”（Ctrl + R）按钮运行项目。
+- 按“虫子”（Ctrl + D）按钮调试项目。
 
-> 你每次新建文件后，你可能需要重新配置项目——执行上方说明中关于 `configure` 任务的描述。
+> 你每次新建文件后，你可能需要重新配置 CMake。菜单栏 Tools -> CMake -> Reload CMake Project。

@@ -26,7 +26,7 @@ TokenPtr Tokenizer::nextToken(int& pos) {
                 return result;
             } else {
                 throw SyntaxError("Unexpected character after #");
-            }
+            }//"ab\"c"
         } else if (c == '"') {
             std::string string;
             pos++;

@@ -1,16 +1,23 @@
 {
-  "version": "0.2.0",
-  // 安装 CodeLLDB VS Code 扩展以启用调试功能
   "configurations": [
     {
-      "name": "(lldb) Launch",
-      "type": "lldb",
-      "request": "launch",
-      "program": "${workspaceFolder}/bin/mini_lisp",
+      "MIMode": "lldb",
       "args": [],
-      "cwd": "${workspaceFolder}",
-      "preLaunchTask": "build",
-      "console": "externalTerminal"
+      "console": "externalTerminal",
+      "cwd": "${fileDirname}",
+      "env": {
+        "PATH": "/usr/bin:${env:PATH}"
+      },
+      "environment": [],
+      "internalConsosleOptions": "neverOpen",
+      "miDebuggerPath": "/usr/bin/lldb",
+      "name": "single file debug",
+      "preLaunchTask": "single file build",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "request": "launch",
+      "stopAtEntry": false,
+      "type": "lldb"
     }
-  ]
+  ],
+  "version": "0.2.0"
 }

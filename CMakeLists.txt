@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.24.2)
 project(mini_lisp)
 
 aux_source_directory(src SOURCES)
-add_executable(mini_lisp ${SOURCES})
+add_executable(mini_lisp ${SOURCES} )
 set_target_properties(
   mini_lisp
   PROPERTIES CXX_STANDARD 20
